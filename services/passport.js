@@ -23,7 +23,7 @@ passport.use(
       callbackURL: "/auth/google/callback", // not https but http using relative path
       proxy: true // fix https and http issues
     },
-    async (acceccToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
 
       if (existingUser) {
